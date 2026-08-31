@@ -1,196 +1,80 @@
 .subscribe {
-  min-height: 256px;
-  padding: 40px 20px;
-  position: relative;
-  border-top: none;
+  padding: 20px 20px 40px;
 
   @media (min-width: $tablet-width) {
-    background-image: none;
-    padding-bottom: 58px;
+    padding: 0 30px 80px;
   }
 
   @media (min-width: $desktop-width) {
-    padding: 80px 20px;
-    padding-bottom: 105px;
+    padding: 95px 30px 104px;
   }
 }
 
 .subscribe__title {
-  font-size: 24px;
-  line-height: 24px;
-  font-weight: 400;
-  margin-bottom: 32px;
+  @include font-params-mobile(24px, 24px);
   position: relative;
-  width: 100%;
-  text-align: left;
-  margin-left: -10px;
+  margin: 0 0 33px;
+  max-width: 80%;
+  width: fit-content;
+  font-family: $secondary-font;
+  font-weight: $base-font-weight;
+  background-color: $base-light;
+  box-shadow:
+    -20px 0 0 0 $base-light,
+    40px 0 0 0 $base-light;
 
   @media (min-width: $tablet-width) {
-    font-size: 32px;
-    line-height: 32px;
-    margin-bottom: 68px;
-    margin-top: 38px;
-    background-color: #ffffff;
+    @include font-params-tablet(32px, 32px);
+    margin-bottom: 66px;
+    max-width: 90%;
+    padding-left: 40px;
+    box-shadow:
+      0 0 0 0 $base-light,
+      40px 0 0 0 $base-light;
   }
 
   @media (min-width: $desktop-width) {
-    font-size: 40px;
-    line-height: 40px;
-    margin-top: 15px;
+    @include font-params-tablet(40px, 40px);
     margin-bottom: 72px;
+    padding-left: 0;
+    box-shadow:
+      -40px 0 0 0 $base-light,
+      40px 0 0 0 $base-light;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 100vw;
+    height: 2px;
+    background-color: $accent-color;
+    box-shadow: 100vw 0 0 0 $accent-color;
+    z-index: -1;
   }
 }
-
-.subscribe__title::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  height: 2px;
-  background-color: #68b738;
-  width: 100vw;
-  left: calc((100vw - 100%) / -2);
-
-  @media (min-width: $tablet-width) {
-    top: 15px;
-  }
-
-  @media (min-width: $desktop-width) {
-    top: 18px;
-  }
-}
-
-.subscribe__title span {
-  background-color: #ffffff;
-  position: relative;
-  z-index: 1;
-  padding: 0 10px;
-  width: 200px;
-  display: block;
-
-  @media (min-width: $tablet-width) {
-    right: -21px;
-    width: 282px;
-    display: block;
-    text-align: center;
-  }
-
-  @media (min-width: $desktop-width) {
-    padding: 0 40px;
-    width: 283px;
-    display: inline;
-    margin-left: -60px;
-  }
-}
-
 
 .subscribe__description {
-  font-size: 16px;
-  line-height: 24px;
+  @include font-params-mobile(16px, 24px);
+  margin: 0 0 24px;
+  font-family: $secondary-font;
   text-align: center;
-  font-weight: 400;
-  margin-bottom: 24px;
 
   @media (min-width: $tablet-width) {
-    width: 632px;
-    font-size: 24px;
-    line-height: 32px;
-    margin-left: 48px;
-    margin-bottom: 24px;
-  }
-
-  @media (min-width: $desktop-width) {
-    width: 730px;
-    margin: auto;
-    margin-bottom: 23px;
-  }
-}
-
-.subscribe__form input {
-  font-size: 20px;
-  line-height: 30px;
-  font-family: $Oswald;
-  font-weight: 400;
-  color: #444444;
-  text-transform: uppercase;
-  width: 280px;
-  min-height: 56px;
-  border: 1px solid #e7e7e7;
-  border-radius: 0;
-  background-color: #ffffff;
-  padding-left: 13px;
-
-  &:hover {
-    border-color: #cdcdcd;
-  }
-
-  &:focus {
-    outline: 2px solid #444444;
-    border-radius: 0;
-  }
-
-  @media (min-width: $tablet-width) {
-    width: 376px;
-  }
-
-  @media (min-width: $desktop-width) {
-    width: 496px;
-  }
-}
-
-.subscribe__form .subscribe__form--error {
-  border: 2px solid #ff8282;
-  outline: none;
-}
-
-.subscribe__button {
-  font-size: 20px;
-  line-height: 26px;
-  font-family: $Oswald;
-  font-weight: 400;
-  color: #ffffff;
-  text-transform: uppercase;
-  text-align: center;
-  background-color: #68b738;
-  width: 280px;
-  border: none;
-  display: flex;
-  flex-wrap: wrap;
-  place-content: space-around;
-  padding: 15px;
-  word-wrap: break-word;
-  word-break: break-word;
-  white-space: normal;
-
-  @media (min-width: $tablet-width) {
-    width: 256px;
-  }
-
-  @media (min-width: $desktop-width) {
-    &:hover {
-      background-color: #5eaa2f;
-    }
-
-    &:active {
-      background-color: #5eaa2f;
-      color: rgba(255, 255, 255, 0.3);
-    }
+    @include font-params-tablet(24px, 32px);
+    margin: 0 auto 24px;
+    max-width: 90%;
   }
 }
 
 .subscribe__form {
-  display: flex;
-  flex-direction: column;
-  row-gap: 16px;
-
   @media (min-width: $tablet-width) {
-    display: flex;
-    justify-content: center;
-    min-height: 56px;
-    flex-direction: row;
+    max-width: 89%;
+    margin: 0 auto;
   }
 
   @media (min-width: $desktop-width) {
-    margin: 0;
-    text-align: center;
+    max-width: 752px;
   }
 }
